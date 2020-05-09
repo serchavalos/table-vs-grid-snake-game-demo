@@ -1,7 +1,7 @@
 type Coordinate = [number, number];
 
 export class Snake {
-  body: Coordinate[] = [...new Array(10)].map((_, index) => [index, 24]);
+  body: Coordinate[] = [...new Array(15)].map((_, index) => [index, 24]);
 
   move = (inputPos: Coordinate): void => {
     let nextPos = inputPos;
