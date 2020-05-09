@@ -1,4 +1,8 @@
-export const renderTable = (elementId, limitRows, limitCells) => {
+export const renderTable = (
+  elementId: string,
+  limitRows: number,
+  limitCells: number
+): void => {
   const container = document.getElementById(elementId);
   if (!container) {
     throw new Error(`element with id ${elementId} was not found`);

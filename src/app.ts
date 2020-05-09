@@ -1,19 +1,19 @@
 import { renderTable } from "./canvas";
-import { Snake } from "./snake";
+import { Snake, SnakeType } from "./snake";
 
 export const App = () => {
-  let snake;
+  let snake: SnakeType;
   const NUM_ROWS = 50;
   const NUM_CELLS = 50;
 
   return {
-    init: (elementId) => {
+    init: (elementId: string) => {
       renderTable(elementId, NUM_ROWS, NUM_CELLS);
       snake = Snake();
     },
 
     render: () => {
-      [...document.querySelectorAll("td")].map((td) =>
+      Array.from(document.querySelectorAll("td")).map((td) =>
         td.classList.remove("selected")
       );
 
@@ -22,7 +22,7 @@ export const App = () => {
         .map(([coordX, coordY]) => `.row-${coordY} .cell-${coordX}`)
         .join(",");
 
-      [...document.querySelectorAll(cssSelector)].map((td) =>
+      Array.from(document.querySelectorAll(cssSelector)).map((td) =>
         td.classList.add("selected")
       );
     },

@@ -8,7 +8,7 @@ function init() {
     app.goLeft();
     app.render();
 
-    setTimeout(() => requestAnimationFrame(animate), 0);
+    setTimeout(() => requestAnimationFrame(animate), 20);
   };
 
   animate();
