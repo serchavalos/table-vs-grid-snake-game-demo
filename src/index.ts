@@ -1,7 +1,7 @@
 import { App } from "./app";
 
 function init() {
-  const app = App();
+  const app = new App();
   app.init("main");
 
   const animate = () => {
