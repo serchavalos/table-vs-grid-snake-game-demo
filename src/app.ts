@@ -1,4 +1,4 @@
-import { renderTable } from "./canvas";
+import { render } from "./canvas";
 import { Snake } from "./snake";
 
 type Direction = "up" | "down" | "left" | "right";
@@ -17,8 +17,8 @@ export class App {
   };
 
   init = (elementId: string) => {
-    renderTable(elementId, this.NUM_ROWS, this.NUM_CELLS);
-    this.allCells = Array.from(document.querySelectorAll("td"));
+    render(elementId, this.NUM_ROWS, this.NUM_CELLS, "table");
+    this.allCells = Array.from(document.querySelectorAll(".cell"));
     this.snake = new Snake();
     this.direction = "right";
   };
@@ -45,7 +45,7 @@ export class App {
 
     const cssSelector = this.snake
       .getCoordinates()
-      .map(([coordX, coordY]) => `.row-${coordY} .cell-${coordX}`)
+      .map(([coordX, coordY]) => `.row-${coordY}.cell-${coordX}`)
       .join(",");
 
     Array.from(document.querySelectorAll(cssSelector)).map((td) =>
